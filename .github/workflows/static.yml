@@ -22,6 +22,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build & Push image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "flerich" --password-stdin
+        docker image build -t flerich/proyectom2 .
+        docker push flerich/proyectom2 
+        
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -41,3 +51,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        
+        
