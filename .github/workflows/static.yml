@@ -29,8 +29,8 @@ jobs:
     - name: Build & Push image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "flerich" --password-stdin
-        docker image build -t flerich/proyectom2 .
-        docker push flerich/proyectom2 
+        docker image build -t flerich/proyectom2:v1 .
+        docker push flerich/proyectom2:v1 
         
   # Single deploy job since we're just deploying
   deploy:
