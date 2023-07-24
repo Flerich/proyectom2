@@ -55,6 +55,7 @@ main .main-logo {
 }
 main .main-logo img { 
     align-items: centerS;
+    border-radius: 10%;
     height: 150px;
     width: 380px;}
 
